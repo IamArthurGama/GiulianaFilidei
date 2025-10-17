@@ -49,16 +49,15 @@
                 <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                     <div class="hidden sm:ml-6 sm:block">
                         <div class="flex space-x-4">
-                            <a href="#menu"
-                                class="rounded-md px-3 py-2 text-sm font-bold text-teal-700/60 hover:bg-teal-700/5 hover:text-teal-700">Menu</a>
-                            <a href="#sobre-mim"
-                                class="rounded-md px-3 py-2 text-sm font-bold text-teal-700/60 hover:bg-teal-700/5 hover:text-teal-700">Sobre
-                                Mim</a>
                             <a href="#servicos"
                                 class="rounded-md px-3 py-2 text-sm font-bold text-teal-700/60 hover:bg-teal-700/5 hover:text-teal-700">Serviços</a>
+                            <a href="#como-trabalho"
+                                class="rounded-md px-3 py-2 text-sm font-bold text-teal-700/60 hover:bg-teal-700/5 hover:text-teal-700">Como eu trabalho</a>
                             <a href="#especialidades"
                                 class="rounded-md px-3 py-2 text-sm font-bold text-teal-700/60 hover:bg-teal-700/5 hover:text-teal-700">Especialidades</a>
-                            <a href="agendar"
+                            <a href="#localizacao"
+                                class="rounded-md px-3 py-2 text-sm font-bold text-teal-700/60 hover:bg-teal-700/5 hover:text-teal-700">Endereço</a>    
+                            <a href="http://wa.me/5524981402908?text=Quero%20agendar%20uma%20sessão"
                                 class="rounded-md bg-teal-700/60 px-3 py-2 text-sm font-bold text-white hover:bg-teal-700">Agendar
                             </a>
                         </div>
@@ -70,17 +69,15 @@
 
         <el-disclosure id="mobile-menu" hidden class="block sm:hidden">
             <div class="space-y-1 px-2 pt-2 pb-3">
-
-                <a href="#"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-teal-700 hover:bg-white/5 hover:text-white">Menu</a>
-                <a href="#"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-teal-700 hover:bg-white/5 hover:text-white">Sobre
-                    Mim</a>
-                <a href="#"
+                <a href="#servicos"
                     class="block rounded-md px-3 py-2 text-base font-medium text-teal-700 hover:bg-white/5 hover:text-white">Serviços</a>
-                <a href="#"
+                <a href="#como-trabalho"
+                    class="block rounded-md px-3 py-2 text-base font-medium text-teal-700 hover:bg-white/5 hover:text-white">Como trabalho</a>
+                <a href="#especialidades"
                     class="block rounded-md px-3 py-2 text-base font-medium text-teal-700 hover:bg-white/5 hover:text-white">Especialidades</a>
-                <a href="#" aria-current="page"
+                <a href="#localizacao"
+                    class="block rounded-md px-3 py-2 text-base font-medium text-teal-700 hover:bg-white/5 hover:text-white">Endereço</a>
+                <a href="http://wa.me/5524981402908?text=Quero%20agendar%20uma%20sessão" aria-current="page"
                     class="block rounded-md bg-teal-700/60 px-3 py-2 text-base font-medium text-white">Agendar</a>
             </div>
         </el-disclosure>
@@ -92,14 +89,14 @@
         <div class="flex flex-col-reverse md:flex-row items-center bg-white rounded-lg shadow-md overflow-hidden">
 
             <div class="p-6 md:p-10 flex-1">
-                <h1 class="text-3xl font-bold text-gray-800 leading-tight mb-5">Cuidar da mente é um ato de <br> coragem e
+                <h1 class="text-4xl font-bold text-teal-800 leading-tight mb-5">Cuidar da mente é um ato de <br> coragem e
                     amor próprio</h1>
 
                 <p class="mt-4 text-gray-600 leading-relaxed">Atendimento acolhedor, sigiloso e baseado em evidências
                     para ansiedade, depressão, relacionamentos, autoestima e desenvolvimento pessoal.</p>
 
                 <div class="flex flex-col sm:flex-row mt-6 lg:mt-15 space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#agendar-sessao"
+                    <a href="http://wa.me/5524981402908?text=Quero%20agendar%20uma%20sessão"
                         class="px-6 py-3 text-white bg-teal-700/60 rounded-md hover:bg-teal-800 transition-colors text-center font-bold">
                         Agendar sessão
                     </a>
@@ -119,7 +116,7 @@
     </section>
 
     <!-- Serviços -->
-     <section id="serviços" class="bg-gradient-to-b from-sky-50 to-white">
+     <section id="servicos" class="bg-gradient-to-b from-sky-50 to-white">
         <div class="max-w-6xl mx-auto px-6 md:px-12 py-16 text-center">
             <h2 class="text-4xl font-extrabold text-teal-800 mb-3">Serviços</h2>
             <p class="text-gray-600 max-w-2x1 mx-auto mb-10">Cada pessoa tem um ritmo e uma história única. Conheça os principais tipos de atendimento oferecidos.</p>
@@ -128,7 +125,7 @@
              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="bg-white rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 p-8 border border-teal-100">
                     <!-- Psicoterapia individual -->
-                    <!-- Icone foda -->
+
                     <div class="bg-teal-600/10 p-4 rounded-full inline-flex items-center justify-center mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-teal-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -181,28 +178,6 @@
         </div>
      </section>
 
-     <!-- Mapa -->
-      <section id="localizacao" class="bg-white py-16">
-        <div class="max-w-6x1 text-center p-10">
-            <h2 class="text-4xl font-extrabold text-teal-800 mb-2">Localização</h2>
-            <p class="text-gray-600 mb-10">Atendimento presencial em Barra Mansa - RJ</p>
-
-                <div class="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-lg border border-teal-100">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.0142458319046!2d-44.173240199999995!3d-22.541139100000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9e9bceb5bcf249%3A0xaf911438b97324e1!2sPsic%C3%B3loga%20Giuliana%20Filidei%20-%20Barra%20Mansa%20RJ!5e0!3m2!1spt-BR!2sbr!4v1760442287429!5m2!1spt-BR!2sbr"
-                    class="w-full h-[380px]"
-                    style="border:0;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-                </div>
-
-            </div>
-
-        </div>
-      </section>
-
       <!-- Como trabalho -->
       <section id="como-trabalho" class="bg-gradient-to-b from-white to-sky-50 py-16">
         <div class="max-w-6xl mx-auto px-6 md:px-12">
@@ -235,51 +210,86 @@
         </div>
       </section>
 
-      <!-- Especialidades -->
-      <section id="especialidades" class="bg-white py-16">
-        <div class="max-w-6xl mx-auto px-6 md:px-12">
-            <h2 class="text-4xl font-extrabold text-teal-800 mb-10 text-center">Especialidades</h2>
-            
-            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-                <!-- Grid de especialidades -->
-                <div class="flex-1 w-full max-w-2xl">
-                    <div class="bg-gradient-to-br from-teal-400 to-cyan-500 rounded-3xl p-8 shadow-xl">
-                        <div class="grid grid-cols-3 gap-4">
-                            <!-- Linha 1 -->
-                            <div class="bg-white rounded-xl p-6 flex items-center justify-center text-center shadow-md hover:shadow-lg transition-shadow duration-300">
-                                <h3 class="text-md font-bold text-gray-800">TDAH</h3>
-                            </div>
-                            <div class="bg-white rounded-xl p-6 flex items-center justify-center text-center shadow-md hover:shadow-lg transition-shadow duration-300">
-                                <h3 class="text-md font-bold text-gray-800">Ansiedade</h3>
-                            </div>
-                            <div class="bg-white rounded-xl p-6 flex items-center justify-center text-center shadow-md hover:shadow-lg transition-shadow duration-300">
-                                <h3 class="text-md font-bold text-gray-800">Depressão</h3>
-                            </div>
-                            
-                            <!-- Linha 2 -->
-                            <div class="bg-white rounded-xl p-6 flex items-center justify-center text-center shadow-md hover:shadow-lg transition-shadow duration-300">
-                                <h3 class="text-md font-bold text-gray-800">Autoestima</h3>
-                            </div>
-                            <div class="bg-white rounded-xl p-6 flex items-center justify-center text-center shadow-md hover:shadow-lg transition-shadow duration-300">
-                                <h3 class="text-md font-bold text-gray-800">Relacionamentos</h3>
-                            </div>
-                            <div class="bg-white rounded-xl p-6 flex items-center justify-center text-center shadow-md hover:shadow-lg transition-shadow duration-300">
-                                <h3 class="text-md font-bold text-gray-800">Luto</h3>
-                            </div>
-                        </div>
-                    </div>
+<!-- Especialidades -->
+<section id="especialidades" class="bg-gradient-to-t from-white to-sky-50 py-16">
+  <div class="max-w-6xl mx-auto px-6 md:px-12">
+    <h2 class="text-4xl font-extrabold text-teal-800 mb-10 text-center">Especialidades</h2>
+
+    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+
+      <div class="flex-1 w-full max-w-2xl">
+        <div class="bg-gradient-to-br from-teal-100 to-cyan-100 rounded-3xl p-8 shadow-xl">
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+
+            <div class="bg-white rounded-xl p-6 flex items-center justify-center text-center shadow-md hover:shadow-lg transition-shadow duration-300">
+              <h3 class="px-4 py-2 text-teal-800 rounded-full text-sm font-semibold">Terapia Cognitivo-Comportamental (TCC)</h3>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 flex items-center justify-center text-center shadow-md hover:shadow-lg transition-shadow duration-300">
+              <h3 class="px-4 py-2 text-teal-800 rounded-full text-sm font-semibold">Criminologia</h3>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 flex items-center justify-center text-center shadow-md hover:shadow-lg transition-shadow duration-300">
+              <h3 class="px-4 py-2 text-teal-800 rounded-full text-sm font-semibold">Saúde Mental</h3>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 flex items-center justify-center text-center shadow-md hover:shadow-lg transition-shadow duration-300">
+              <h3 class="px-4 py-2 text-teal-800 rounded-full text-sm font-semibold">Vendas e Consumo</h3>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 flex items-center justify-center text-center shadow-md hover:shadow-lg transition-shadow duration-300">
+              <h3 class="px-4 py-2 text-teal-800 rounded-full text-sm font-semibold">Comportamento Humano</h3>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 flex items-center justify-center text-center shadow-md hover:shadow-lg transition-shadow duration-300">
+              <h3 class="px-4 py-2 text-teal-800 rounded-full text-sm font-semibold">Desenvolvimento Emocional</h3>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-1">
+        <p class="text-gray-700 leading-relaxed text-lg">
+          Pós-graduada em <strong>Teoria Cognitivo-Comportamental (TCC)</strong>, a psicóloga atua com base em evidências científicas, ajudando o paciente a compreender e reestruturar pensamentos, emoções e comportamentos.
+        </p>
+
+        <p class="text-gray-700 leading-relaxed mt-4">
+          Possui também especialização em <strong>Criminologia</strong>, <strong>Vendas e Consumo</strong> e <strong>Saúde Mental</strong>, o que amplia sua compreensão sobre os diferentes contextos do comportamento humano.
+        </p>
+
+        <p class="text-gray-600 leading-relaxed mt-4">
+          Cada atendimento é planejado de forma personalizada, com empatia, sigilo e foco no bem-estar e desenvolvimento pessoal do paciente.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <!-- Mapa -->
+      <section id="localizacao" class="bg-white py-16">
+        <div class="max-w-6x1 text-center p-10">
+            <h2 class="text-4xl font-extrabold text-teal-800 mb-2">Localização</h2>
+            <p class="text-gray-600 mb-10">Atendimento presencial em Barra Mansa - RJ</p>
+
+                <div class="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-lg border border-teal-100">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.0142458319046!2d-44.173240199999995!3d-22.541139100000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9e9bceb5bcf249%3A0xaf911438b97324e1!2sPsic%C3%B3loga%20Giuliana%20Filidei%20-%20Barra%20Mansa%20RJ!5e0!3m2!1spt-BR!2sbr!4v1760442287429!5m2!1spt-BR!2sbr"
+                    class="w-full h-[380px]"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
                 </div>
 
-                <!-- Texto descritivo -->
-                <div class="flex-1">
-                    <p class="text-gray-700 leading-relaxed text-lg">
-                        Trabalho com uma variedade de questões emocionais e comportamentais, oferecendo suporte especializado e personalizado para cada necessidade.
-                    </p>
-                    <p class="text-gray-600 leading-relaxed mt-4">
-                        Cada especialidade é abordada com técnicas baseadas em evidências científicas, priorizando seu bem-estar e desenvolvimento pessoal.
-                    </p>
+                <div class="mt-6 text-gray-700">
+                    <p class="text-lg front-semibold text-teal-800">Psicóloga Giuliana Filidei</p>
+                    <p class="text-gray-600">R. Pinto Ribeiro, 154 - 2° andar - Centro</p>
+                    <p class="text-gray-600">Barra Mansa - RJ, 27310-420</p>
                 </div>
             </div>
+
         </div>
       </section>
 
