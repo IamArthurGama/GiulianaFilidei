@@ -10,118 +10,115 @@
 			src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 		<style>
 			:root {
-				/*
-				* ====================================================================
-				* 1. PALETA DE CORES BRUTA (DESIGN TOKENS)
-				* ====================================================================
-				*/
+				/* * ====================================================================
+     * 1. PALETA DE CORES BRUTA (DESIGN TOKENS)
+     * ====================================================================
+     */
 
-				/* Cores Primárias (Azuis) */
-				--color-primary-100: #ebf1f6; /* Mais claro */
-				--color-primary-300: #b1c9de;
-				--color-primary-500: #5d83a5; /* Principal */
-				--color-primary-700: #4a6a87;
-				--color-primary-900: #3e5870; /* Mais escuro */
+				/* Cores Primárias (Azuis - Baseados no Logo) */
+				--color-primary-100: #e6f4fa; /* Azul muito claro (Derivado) */
+				--color-primary-200: #aedbf1; /* Azul claro suave */
+				--color-primary-300: #a0d2eb; /* Azul claro (Fundo do logo) */
+				--color-primary-500: #7fb2d5; /* Azul médio (Letras 'GF' do logo) */
+				--color-primary-700: #3677a7; /* Azul escuro (Texto 'Giuliana Filidei' do logo) */
+				--color-primary-900: #244d6c; /* Azul marinho (Derivado, mais escuro) */
 
-				/* Cores Secundárias (Tons Quentes) */
-				--color-secondary-100: #f7f1ee; /* Mais claro */
-				--color-secondary-300: #fae1d6;
-				--color-secondary-500: #c99383; /* Principal */
-				--color-secondary-700: #a26a57;
-				--color-secondary-900: #865241; /* Mais escuro */
+				/* Cores Secundárias (Tons Frios/Neutros Sutis - Para contraste similar ao original) */
+				--color-secondary-100: #f5f9fc; /* Quase branco, frio) */
+				--color-secondary-300: #e0eaf1; /* Cinza azulado muito claro) */
+				--color-secondary-500: #c8d7e3; /* Cinza azulado claro) */
+				--color-secondary-700: #a0b4c4; /* Cinza azulado médio) */
+				--color-secondary-900: #788b9a; /* Cinza azulado escuro) */
 
-				/* Cores Neutras (Greys/Off-whites) */
+				/* Cores Neutras */
 				--color-neutral-0: #ffffff; /* Branco puro */
-				--color-neutral-100: #f9f8f7; /* Off-white */
-				--color-neutral-300: #e4e1de;
-				--color-neutral-500: #ada6a1;
-				--color-neutral-700: #5c5550; /* Texto principal */
-				--color-neutral-900: #2f2a27; /* Quase preto */
+				--color-neutral-100: #f7f7f9; /* Off-white */
+				--color-neutral-300: #dedfe4;
+				--color-neutral-500: #a1a3ad;
+				--color-neutral-700: #51505c; /* Texto principal */
+				--color-neutral-900: #27282f; /* Quase preto */
 
-				/*
-				* ====================================================================
-				* 2. VARIÁVEIS SEMÂNTICAS (CORES DE UI)
-				* ====================================================================
-				*/
+				/* * ====================================================================
+     * 2. VARIÁVEIS SEMÂNTICAS (CORES DE UI)
+     * ====================================================================
+     */
 
 				/* Fundo (Backgrounds) */
-				--bg-default: var(
-					--color-neutral-100
-				); /* Fundo principal da página */
-				--bg-subtle-50: #fae1d675;
+				--bg-default: var(--color-neutral-100); /* Off-white */
+				--bg-subtle-50: color-mix(
+					in srgb,
+					var(--color-primary-300) 50%,
+					transparent
+				); /* Baseado no fundo do logo com alpha */
 				--bg-subtle: var(
-					--color-secondary-300
-				); /* Fundo de seções/cards para leve destaque */
-				--bg-surface: var(
-					--color-neutral-0
-				); /* Fundo de elementos "flutuantes" como modais ou cards internos */
+					--color-primary-200
+				); /* Fundo sutil, azul bem claro */
+				--bg-surface: var(--color-neutral-0);
 
 				/* Texto (Text) */
 				--text-default: var(
 					--color-neutral-700
-				); /* Cor principal para parágrafos */
+				); /* Cinza escuro para contraste */
 				--text-subtle: var(
 					--color-neutral-500
-				); /* Cor para textos secundários, placeholders */
+				); /* Cinza médio */
 				--text-heading: var(
 					--color-primary-900
-				); /* Cor para títulos principais (H1, H2) */
+				); /* Título azul mais escuro */
 				--text-on-accent: var(
 					--color-neutral-0
-				); /* Cor do texto que fica em cima de um fundo escuro */
+				); /* Branco puro para fundos escuros */
 				--text-on-accent-subtle: var(
-					--color-secondary-300
-				); /* Versão mais clara para textos em fundos não tão escuros assim */
+					--color-primary-100
+				); /* Texto claro sobre fundos médios */
 				--text-link: var(
-					--color-primary-500
-				); /* Cor para links de texto */
+					--color-primary-700
+				); /* Link usa azul escuro do logo */
 
 				/* Botão (Button) */
 				--btn-bg: var(
-					--color-primary-500
-				); /* Fundo do botão principal */
-				--btn-bg-hover: var(
 					--color-primary-700
-				); /* Fundo do botão principal ao passar o mouse */
-				--btn-text: var(
-					--text-on-accent
-				); /* Texto do botão principal */
+				); /* Botão usa azul escuro do logo */
+				--btn-bg-hover: var(
+					--color-primary-900
+				); /* Hover para novo azul mais escuro */
+				--btn-text: var(--text-on-accent);
 
 				/* Botão Secundário (com borda) */
 				--btn-secondary-border: var(
-					--color-primary-500
-				); /* Borda do botão secundário */
+					--color-primary-700
+				); /* Borda com azul escuro do logo */
 				--btn-secondary-bg-hover: color-mix(
 					in srgb,
-					var(--color-primary-500) 33%,
+					var(--color-primary-700) 15%,
 					transparent
-				); /* Fundo sutil ao passar o mouse */
+				); /* Hover com azul escuro + alpha */
 				--btn-secondary-text: var(
-					--color-primary-500
-				); /* Texto do botão secundário */
+					--color-primary-700
+				); /* Texto com azul escuro do logo */
 
 				/* Botão Terciário (transparente) */
 				--btn-tertiary-bg-hover: color-mix(
 					in srgb,
-					var(--color-primary-500) 25%,
+					var(--color-primary-700) 20%,
 					transparent
-				); /* Fundo sutil ao passar o mouse */
+				); /* Hover sutil com azul escuro + alpha */
 
 				/* Ícones e Bordas (Icons & Borders) */
 				--border-default: var(
 					--color-neutral-300
-				); /* Cor padrão para bordas e divisórias */
+				); /* Cinza claro */
 				--outline-default: var(
 					--color-primary-900
-				); /* Cor padrão para outlines */
+				); /* Outline azul mais escuro */
 				--icon-default: var(
 					--color-primary-500
-				); /* Cor padrão para ícones */
+				); /* Ícone com azul médio do logo (GF) */
 
 				/* Interação (Focus/Outline) */
 				--focus-ring-color: var(
 					--color-primary-700
-				); /* Cor do anel de foco para acessibilidade */
+				); /* Anel de foco com azul escuro do logo */
 			}
 
 			/*
@@ -296,7 +293,6 @@
 				width: 120px;
 				height: 30px;
 			}
-
 
 			.bg-icon {
 				position: absolute;
