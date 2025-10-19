@@ -297,21 +297,6 @@
 				height: 30px;
 			}
 
-			.pyramid-card:has(.badge-icon-gold) .inner-pyramid-card::before {
-				background: #ff4646;
-				transform: rotate(-30deg) translate(-10%, -90%);
-			}
-
-			.pyramid-card:has(.badge-icon-iron) .inner-pyramid-card::before {
-				background: #c2c7cd;
-				transform: rotate(-30deg) translate(-10%, -100%);
-			}
-
-			.pyramid-card:has(.badge-icon-bronze) .inner-pyramid-card::before {
-				background: #e1a875;
-
-				transform: rotate(-30deg) translate(-15%, -110%);
-			}
 
 			.bg-icon {
 				position: absolute;
@@ -341,31 +326,6 @@
 			}
 			.bg-icon-emocional {
 				background-image: url("./icons/emocional.png");
-			}
-
-			.badge-icon {
-				position: absolute;
-				aspect-ratio: 1 / 1;
-				left: -1%;
-				top: 1%;
-				z-index: 1;
-			}
-
-			.badge-icon-gold {
-				background: url("./icons/badgeGold.png") center / cover;
-				width: 40px;
-			}
-
-			.badge-icon-iron {
-				background: url("./icons/badgeIron.png") center / cover
-					no-repeat;
-				width: 35px;
-			}
-
-			.badge-icon-bronze {
-				background: url("./icons/badgeBronze.png") center / cover
-					no-repeat;
-				width: 30px;
 			}
 
 			.inner-pyramid-card h3 {
@@ -401,13 +361,6 @@
 			.timer-fill.active::after {
 				transform: translate(0%, -25%);
 				transition: transform 10s linear;
-			}
-
-			.footer {
-				background: url("/img/wave.svg") no-repeat center bottom;
-				background-size: 100%;
-				position: relative;
-				z-index: 0;
 			}
 
 			/* Basicamente limitando para funcionar somente com mouse*/
@@ -500,7 +453,7 @@
 		</style>
 	</head>
 
-	<body>
+	<body class="relative">
 		<nav
 			class="fixed w-full top-0 z-2 backdrop-blur-[10px] outline-[var(--bg-subtle)] outline-1 bg-subtle-50 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10">
 			<div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -676,9 +629,7 @@
 		</section>
 
 		<!-- Serviços -->
-		<section
-			id="servicos"
-			class="bg-gradient-to-b from-bg-default to-bg-surface pt-50">
+		<section id="servicos" class="to-bg-surface pt-40">
 			<div class="md:w-5/7 w-6/7 mx-auto px-6 md:px-12 text-center">
 				<h2
 					class="sm:text-5xl text-4xl font-extrabold text-heading mb-3">
@@ -795,7 +746,7 @@
 		</section>
 
 		<!-- Como trabalho -->
-		<section id="como-trabalho" class="bg-default pt-50">
+		<section id="como-trabalho" class="bg-default pt-40">
 			<div class="md:w-5/7 w-6/7 mx-auto px-6 md:px-12">
 				<h2
 					class="sm:text-5xl text-4xl font-extrabold text-heading mb-3 text-center">
@@ -900,11 +851,11 @@
 								x-transition:leave-end="opacity-0 translate-x-10"
 								x-cloak>
 								<h3
-									class="xl:text-3xl md:text-2xl sm:text-3xl text-2xl font-bold mb-2 text-heading text-shadow-light">
+									class="xl:text-3xl md:text-2xl sm:text-3xl text-xl font-bold mb-2 text-heading text-shadow-light">
 									Terapia Cognitivo-Comportamental (TCC)
 								</h3>
 								<p
-									class="leading-relaxed text-default xl:text-xl text-lg text-on-accent-subtle text-shadow-dark">
+									class="leading-relaxed text-default xl:text-xl sm:text-lg text-sm text-on-accent-subtle text-shadow-dark">
 									Focada em identificar e reestruturar padrões
 									de pensamento e comportamento que causam
 									sofrimento.
@@ -922,11 +873,11 @@
 								x-transition:leave-end="opacity-0 translate-x-10"
 								x-cloak>
 								<h3
-									class="xl:text-3xl md:text-2xl sm:text-3xl text-2xl font-bold mb-2 text-heading text-shadow-light">
+									class="xl:text-3xl md:text-2xl sm:text-3xl text-xl font-bold mb-2 text-heading text-shadow-light">
 									Psicoeducação
 								</h3>
 								<p
-									class="leading-relaxed text-default xl:text-xl text-lg text-on-accent-subtle text-shadow-dark">
+									class="leading-relaxed text-default xl:text-xl sm:text-lg text-sm text-on-accent-subtle text-shadow-dark">
 									Compreender o que acontece na sua mente é o
 									primeiro passo para a mudança e para reduzir
 									a ansiedade.
@@ -944,11 +895,11 @@
 								x-transition:leave-end="opacity-0 translate-x-10"
 								x-cloak>
 								<h3
-									class="xl:text-3xl md:text-2xl sm:text-3xl text-2xl font-bold mb-2 text-heading text-shadow-light">
+									class="xl:text-3xl md:text-2xl sm:text-3xl text-xl font-bold mb-2 text-heading text-shadow-light">
 									Mindfulness (Atenção Plena)
 								</h3>
 								<p
-									class="leading-relaxed text-default xl:text-xl text-lg text-on-accent-subtle text-shadow-dark">
+									class="leading-relaxed text-default xl:text-xl sm:text-lg text-sm text-on-accent-subtle text-shadow-dark">
 									Técnicas para focar no momento presente,
 									aceitar emoções difíceis e cultivar a calma
 									mental.
@@ -966,11 +917,11 @@
 								x-transition:leave-end="opacity-0 translate-x-10"
 								x-cloak>
 								<h3
-									class="xl:text-3xl md:text-2xl sm:text-3xl text-2xl font-bold mb-2 text-heading text-shadow-light">
+									class="xl:text-3xl md:text-2xl sm:text-3xl text-xl font-bold mb-2 text-heading text-shadow-light">
 									Terapia de Aceitação e Compromisso (ACT)
 								</h3>
 								<p
-									class="leading-relaxed text-default xl:text-xl text-lg text-on-accent-subtle text-shadow-dark">
+									class="leading-relaxed text-default xl:text-xl sm:text-lg text-sm text-on-accent-subtle text-shadow-dark">
 									Aprenda a aceitar o que não pode controlar e
 									se comprometer com ações que enriquecem sua
 									vida.
@@ -983,9 +934,7 @@
 		</section>
 
 		<!-- Especialidades -->
-		<section
-			id="especialidades"
-			class="bg-gradient-to-t from-bg-surface to-bg-default pt-50">
+		<section id="especialidades" class="pt-40">
 			<div class="md:w-5/7 w-6/7 mx-auto px-6 md:px-12">
 				<h2
 					class="sm:text-5xl text-4xl font-extrabold text-heading mb-10 text-center">
@@ -1015,8 +964,6 @@
 										<span
 											class="bg-icon bg-icon-tcc bottom-[0] right-[2%] sm:w-[120px] w-[70px] sm:bottom-[50%] sm:right-[50%] sm:translate-x-[50%] sm:translate-y-[50%]"></span>
 									</div>
-									<span
-										class="badge-icon badge-icon-gold"></span>
 								</div>
 
 								<div
@@ -1035,10 +982,8 @@
 												do crime.
 											</p>
 											<span
-												class="bg-icon bg-icon-criminologia bottom-[0] right-[2%] sm:w-[120px] w-[70px] sm:bottom-[50%] sm:right-[50%] sm:translate-x-[50%] sm:translate-y-[50%]"></span>
+												class="bg-icon bg-icon-criminologia bottom-[0] left-[2%] sm:w-[120px] w-[70px] sm:bottom-[50%] sm:left-[50%] sm:translate-x-[-50%] sm:translate-y-[50%]"></span>
 										</div>
-										<span
-											class="badge-icon badge-icon-iron"></span>
 									</div>
 
 									<div
@@ -1056,8 +1001,6 @@
 											<span
 												class="bg-icon bg-icon-vendas bottom-[5%] right-[2%] sm:w-[120px] w-[65px] sm:bottom-[50%] sm:right-[50%] sm:translate-x-[50%] sm:translate-y-[50%]"></span>
 										</div>
-										<span
-											class="badge-icon badge-icon-iron"></span>
 									</div>
 
 									<div
@@ -1074,10 +1017,8 @@
 												psicológico geral.
 											</p>
 											<span
-												class="bg-icon bg-icon-saude bottom-[0] right-[2%] sm:w-[120px] w-[70px] sm:bottom-[50%] sm:right-[50%] sm:translate-x-[50%] sm:translate-y-[50%]"></span>
+												class="bg-icon bg-icon-saude bottom-[0] left-[2%] sm:w-[120px] w-[70px] sm:bottom-[50%] sm:left-[50%] sm:translate-x-[-50%] sm:translate-y-[50%]"></span>
 										</div>
-										<span
-											class="badge-icon badge-icon-iron"></span>
 									</div>
 								</div>
 
@@ -1098,8 +1039,6 @@
 											<span
 												class="bg-icon bg-icon-comportamento bbottom-[0] right-[2%] sm:w-[120px] w-[70px] sm:bottom-[50%] sm:right-[50%] sm:translate-x-[50%] sm:translate-y-[50%]"></span>
 										</div>
-										<span
-											class="badge-icon badge-icon-bronze"></span>
 									</div>
 
 									<div
@@ -1116,10 +1055,8 @@
 												relacionamentos.
 											</p>
 											<span
-												class="bg-icon bg-icon-emocional bottom-[0] right-[2%] sm:w-[120px] w-[70px] sm:bottom-[50%] sm:right-[50%] sm:translate-x-[50%] sm:translate-y-[50%]"></span>
+												class="bg-icon bg-icon-emocional bottom-[0] left-[2%] sm:w-[120px] w-[70px] sm:bottom-[50%] sm:left-[50%] sm:translate-x-[-50%] sm:translate-y-[50%]"></span>
 										</div>
-										<span
-											class="badge-icon badge-icon-bronze"></span>
 									</div>
 								</div>
 							</div>
@@ -1158,7 +1095,7 @@
 		</section>
 
 		<!-- Mapa -->
-		<section id="localizacao" class="pt-50">
+		<section id="localizacao" class="pt-40">
 			<div class="md:w-5/7 w-6/7 text-center p-10 justify-self-center">
 				<h2
 					class="sm:text-5xl text-4xl font-extrabold text-heading mb-2">
@@ -1193,67 +1130,75 @@
 
 		<!-- Footer -->
 		<footer class="footer text-center pt-35 pb-10">
-			<div class="mb-4">
-				<p class="text-default text-sm font-semibold mb-2">
-					Entre em contato:
-				</p>
-				<div class="flex justify-center items-center space-x-4">
-					<a
-						href="https://wa.me/5524981402908?text=Olá,%20Giuliana!%20Encontrei%20seu%20contato%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20informações."
-						target="_blank"
-						rel="noopener noreferrer"
-						class="text-link hover:text-heading transition-colors flex items-center space-x-1 text-sm">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="h-4 w-4"
-							fill="currentColor"
-							viewBox="0 0 16 16">
-							<path
-								d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
-						</svg>
-						<span>(24) 98140-2908</span>
-					</a>
+			<img
+				src="/img/wave.svg"
+				alt=""
+				class="absolute bottom-0 left-0 w-full object-cover pointer-events-none"
+				style="z-index: 0; min-height: 1200px"
+				aria-hidden="true" />
+			<div class="relative z-10">
+				<div class="mb-4">
+					<p class="text-default text-sm font-semibold mb-2">
+						Entre em contato:
+					</p>
+					<div class="flex justify-center items-center space-x-4">
+						<a
+							href="https://wa.me/5524981402908?text=Olá,%20Giuliana!%20Encontrei%20seu%20contato%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20informações."
+							target="_blank"
+							rel="noopener noreferrer"
+							class="text-link hover:text-heading transition-colors flex items-center space-x-1 text-sm">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								class="h-4 w-4"
+								fill="currentColor"
+								viewBox="0 0 16 16">
+								<path
+									d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+							</svg>
+							<span>(24) 98140-2908</span>
+						</a>
 
-					<a
-						href="https://www.instagram.com/psicologiuliana/"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="text-link hover:text-heading transition-colors flex items-center space-x-1 text-sm">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="h-4 w-4"
-							fill="currentColor"
-							viewBox="0 0 16 16">
-							<path
-								d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.703.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372.853.038 1.125.049 3.297.049 2.172 0 2.444-.01 3.297-.049.852-.04 1.433-.174 1.942-.372.526-.205.972-.478 1.417-.923.445-.444.719-.891.923-1.417.198-.51.333-1.09.372-1.942.038-.853.049-1.125.049-3.297 0-2.172-.01-2.444-.049-3.297-.04-.852-.174-1.433-.372-1.942a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.09-.333-1.942-.372C10.444.01 10.173 0 8 0zm0 1.442c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.233s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485-.145.373-.319.64-.599.92s-.546.453-.92.598c-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.389.046-3.232c.035-.78.166-1.204.275-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.843-.038 1.096-.047 3.233-.047zM8 3.882a4.108 4.108 0 1 0 0 8.217 4.108 4.108 0 0 0 0-8.217zm0 6.762a2.652 2.652 0 1 1 0-5.304 2.652 2.652 0 0 1 0 5.304zm4.965-6.404a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92z" />
-						</svg>
-						<span>@psicologiuliana</span>
-					</a>
+						<a
+							href="https://www.instagram.com/psicologiuliana/"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="text-link hover:text-heading transition-colors flex items-center space-x-1 text-sm">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								class="h-4 w-4"
+								fill="currentColor"
+								viewBox="0 0 16 16">
+								<path
+									d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.703.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372.853.038 1.125.049 3.297.049 2.172 0 2.444-.01 3.297-.049.852-.04 1.433-.174 1.942-.372.526-.205.972-.478 1.417-.923.445-.444.719-.891.923-1.417.198-.51.333-1.09.372-1.942.038-.853.049-1.125.049-3.297 0-2.172-.01-2.444-.049-3.297-.04-.852-.174-1.433-.372-1.942a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.09-.333-1.942-.372C10.444.01 10.173 0 8 0zm0 1.442c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.233s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485-.145.373-.319.64-.599.92s-.546.453-.92.598c-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.389.046-3.232c.035-.78.166-1.204.275-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.843-.038 1.096-.047 3.233-.047zM8 3.882a4.108 4.108 0 1 0 0 8.217 4.108 4.108 0 0 0 0-8.217zm0 6.762a2.652 2.652 0 1 1 0-5.304 2.652 2.652 0 0 1 0 5.304zm4.965-6.404a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92z" />
+							</svg>
+							<span>@psicologiuliana</span>
+						</a>
 
-					<a
-						href="https://www.facebook.com/GiulianaFilidei"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="text-link hover:text-heading transition-colors flex items-center space-x-1 text-sm">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="h-4 w-4"
-							fill="currentColor"
-							viewBox="0 0 16 16">
-							<path
-								d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
-						</svg>
-						<span>Giuliana Filidei</span>
-					</a>
+						<a
+							href="https://www.facebook.com/GiulianaFilidei"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="text-link hover:text-heading transition-colors flex items-center space-x-1 text-sm">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								class="h-4 w-4"
+								fill="currentColor"
+								viewBox="0 0 16 16">
+								<path
+									d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+							</svg>
+							<span>Giuliana Filidei</span>
+						</a>
+					</div>
 				</div>
-			</div>
 
-			<div>
-				<p class="text-default text-sm">
-					© 2025 Giuliana Filidei - Psicóloga | Todos os direitos
-					reservados
-				</p>
-				<p class="text-subtle text-xs mt-1">CRP: 05/61178</p>
+				<div>
+					<p class="text-default text-sm">
+						© 2025 Giuliana Filidei - Psicóloga | Todos os direitos
+						reservados
+					</p>
+					<p class="text-subtle text-xs mt-1">CRP: 05/61178</p>
+				</div>
 			</div>
 		</footer>
 
