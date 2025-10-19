@@ -1,293 +1,1264 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="/dist/output.css" rel="stylesheet" />
+		<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+		<style>
+			:root {
+				/*
+				* ====================================================================
+				* 1. PALETA DE CORES BRUTA (DESIGN TOKENS)
+				* ====================================================================
+				*/
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/dist/output.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="icon" type="image/png" href="img/favicon.png">
+				/* Cores Primárias (Azuis) */
+				--color-primary-100: #ebf1f6; /* Mais claro */
+				--color-primary-300: #b1c9de;
+				--color-primary-500: #5d83a5; /* Principal */
+				--color-primary-700: #4a6a87;
+				--color-primary-900: #3e5870; /* Mais escuro */
 
-    <title>Giuliana Filidei | Psicóloga</title>
-</head>
+				/* Cores Secundárias (Tons Quentes) */
+				--color-secondary-100: #f7f1ee; /* Mais claro */
+				--color-secondary-300: #fae1d6;
+				--color-secondary-500: #c99383; /* Principal */
+				--color-secondary-700: #a26a57;
+				--color-secondary-900: #865241; /* Mais escuro */
 
-<body>
-    <nav
-        class="relative bg-sky-50 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10">
-        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-            <div class="relative flex h-16 items-center justify-between">
-                <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                    <button type="button" command="--toggle" commandfor="mobile-menu"
-                        class="relative inline-flex items-center justify-center rounded-md p-2 text-teal-700 hover:bg-white/5 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500">
-                        <span class="absolute -inset-0.5"></span>
-                        <span class="sr-only">Open main menu</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon"
-                            aria-hidden="true" class="size-6 in-aria-expanded:hidden">
-                            <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon"
-                            aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
-                            <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </button>
+				/* Cores Neutras (Greys/Off-whites) */
+				--color-neutral-0: #ffffff; /* Branco puro */
+				--color-neutral-100: #f9f8f7; /* Off-white */
+				--color-neutral-300: #e4e1de;
+				--color-neutral-500: #ada6a1;
+				--color-neutral-700: #5c5550; /* Texto principal */
+				--color-neutral-900: #2f2a27; /* Quase preto */
 
-                </div>
+				/*
+				* ====================================================================
+				* 2. VARIÁVEIS SEMÂNTICAS (CORES DE UI)
+				* ====================================================================
+				*/
 
-                <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                    <div class="flex shrink-0 items-center">
-                        <a href="#" class="text-teal-800 text-3xl font-bold">Giuliana Filidei</a>
+				/* Fundo (Backgrounds) */
+				--bg-default: var(
+					--color-neutral-100
+				); /* Fundo principal da página */
+				--bg-subtle-50: #fae1d675;
+				--bg-subtle: var(
+					--color-secondary-300
+				); /* Fundo de seções/cards para leve destaque */
+				--bg-surface: var(
+					--color-neutral-0
+				); /* Fundo de elementos "flutuantes" como modais ou cards internos */
 
-                    </div>
-                </div>
+				/* Texto (Text) */
+				--text-default: var(
+					--color-neutral-700
+				); /* Cor principal para parágrafos */
+				--text-subtle: var(
+					--color-neutral-500
+				); /* Cor para textos secundários, placeholders */
+				--text-heading: var(
+					--color-primary-900
+				); /* Cor para títulos principais (H1, H2) */
+				--text-on-accent: var(
+					--color-neutral-0
+				); /* Cor do texto que fica em cima de um fundo escuro */
+				--text-on-accent-subtle: var(
+					--color-secondary-300
+				); /* Versão mais clara para textos em fundos não tão escuros assim */
+				--text-link: var(
+					--color-primary-500
+				); /* Cor para links de texto */
 
-                <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                    <div class="hidden sm:ml-6 sm:block">
-                        <div class="flex space-x-4">
-                            <a href="#servicos"
-                                class="rounded-md px-3 py-2 text-sm font-bold text-teal-700/60 hover:bg-teal-700/5 hover:text-teal-700">Serviços</a>
-                            <a href="#como-trabalho"
-                                class="rounded-md px-3 py-2 text-sm font-bold text-teal-700/60 hover:bg-teal-700/5 hover:text-teal-700">Como eu trabalho</a>
-                            <a href="#especialidades"
-                                class="rounded-md px-3 py-2 text-sm font-bold text-teal-700/60 hover:bg-teal-700/5 hover:text-teal-700">Especialidades</a>
-                            <a href="#localizacao"
-                                class="rounded-md px-3 py-2 text-sm font-bold text-teal-700/60 hover:bg-teal-700/5 hover:text-teal-700">Endereço</a>    
-                            <a href="http://wa.me/5524981402908?text=Quero%20agendar%20uma%20sessão"
-                                class="rounded-md bg-teal-700/60 px-3 py-2 text-sm font-bold text-white hover:bg-teal-700">Agendar
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+				/* Botão (Button) */
+				--btn-bg: var(
+					--color-primary-500
+				); /* Fundo do botão principal */
+				--btn-bg-hover: var(
+					--color-primary-700
+				); /* Fundo do botão principal ao passar o mouse */
+				--btn-text: var(
+					--text-on-accent
+				); /* Texto do botão principal */
 
-        <el-disclosure id="mobile-menu" hidden class="block sm:hidden">
-            <div class="space-y-1 px-2 pt-2 pb-3">
-                <a href="#servicos"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-teal-700 hover:bg-white/5 hover:text-white">Serviços</a>
-                <a href="#como-trabalho"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-teal-700 hover:bg-white/5 hover:text-white">Como trabalho</a>
-                <a href="#especialidades"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-teal-700 hover:bg-white/5 hover:text-white">Especialidades</a>
-                <a href="#localizacao"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-teal-700 hover:bg-white/5 hover:text-white">Endereço</a>
-                <a href="http://wa.me/5524981402908?text=Quero%20agendar%20uma%20sessão" aria-current="page"
-                    class="block rounded-md bg-teal-700/60 px-3 py-2 text-base font-medium text-white">Agendar</a>
-            </div>
-        </el-disclosure>
-    </nav>
+				/* Botão Secundário (com borda) */
+				--btn-secondary-border: var(
+					--color-primary-500
+				); /* Borda do botão secundário */
+				--btn-secondary-bg-hover: color-mix(
+					in srgb,
+					var(--color-primary-500) 33%,
+					transparent
+				); /* Fundo sutil ao passar o mouse */
+				--btn-secondary-text: var(
+					--color-primary-500
+				); /* Texto do botão secundário */
 
-    <section id="menu" class="max-w-10xl mx-auto p-4 md:p-10">
-        <div class="flex flex-col-reverse md:flex-row items-center bg-white rounded-lg shadow-md overflow-hidden">
-            <div class="p-6 md:p-10 flex-1">
-                <h1 class="text-4xl font-bold text-teal-800 leading-tight mb-5">Cuidar da mente é um ato de <br> coragem e
-                    amor próprio</h1>
+				/* Botão Terciário (transparente) */
+				--btn-tertiary-bg-hover: color-mix(
+					in srgb,
+					var(--color-primary-500) 25%,
+					transparent
+				); /* Fundo sutil ao passar o mouse */
 
-                <p class="mt-4 text-gray-600 leading-relaxed">Atendimento acolhedor, sigiloso e baseado em evidências
-                    para ansiedade, depressão, relacionamentos, autoestima e desenvolvimento pessoal.</p>
+				/* Ícones e Bordas (Icons & Borders) */
+				--border-default: var(
+					--color-neutral-300
+				); /* Cor padrão para bordas e divisórias */
+				--outline-default: var(
+					--color-primary-900
+				); /* Cor padrão para outlines */
+				--icon-default: var(
+					--color-primary-500
+				); /* Cor padrão para ícones */
 
-                <div class="flex flex-col sm:flex-row mt-6 lg:mt-15 space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="http://wa.me/5524981402908?text=Quero%20agendar%20uma%20sessão"
-                        class="px-6 py-3 text-white bg-teal-700/60 rounded-md hover:bg-teal-800 transition-colors text-center font-bold">
-                        Agendar sessão
-                    </a>
-                    <a href="#servicos"
-                        class="px-6 py-3 text-teal-700/60 border-2 border-teal-700/60 rounded-md hover:bg-teal-700/20 hover:text-teal-700 hover:border-teal-700/0 transition-colors text-center font-bold">
-                        Conhecer serviços
-                    </a>
-                </div>
-            </div>
+				/* Interação (Focus/Outline) */
+				--focus-ring-color: var(
+					--color-primary-700
+				); /* Cor do anel de foco para acessibilidade */
+			}
 
-            <div class="flex-1 w-full relative aspect-video md:aspect-auto">
-                <img src="https://images.unsplash.com/photo-1641806120809-c4ce6aee33b8?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="Uma pessoa em um caiaque em um lago com montanhas e neblina."
-                    class="w-full h-full object-cover rounded-tr-lg rounded-br-lg md:rounded-bl-none">
-            </div>
-        </div>
-    </section>
+			/*
+			* ====================================================================
+			* 3. CLASSES UTILITÁRIAS (BASEADAS NAS VARIÁVEIS SEMÂNTICAS)
+			* ====================================================================
+			*/
 
-    <!-- Serviços -->
-     <section id="servicos" class="bg-gradient-to-b from-sky-50 to-white">
-        <div class="max-w-6xl mx-auto px-6 md:px-12 py-16 text-center">
-            <h2 class="text-4xl font-extrabold text-teal-800 mb-3">Serviços</h2>
-            <p class="text-gray-600 max-w-2x1 mx-auto mb-10">Cada pessoa tem um ritmo e uma história única. Conheça os principais tipos de atendimento oferecidos.</p>
+			/* Impedir carregamentos inesperados */
+			[x-cloak] {
+				display: none !important;
+			}
 
-            <!-- Cards -->
-             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 p-8 border border-teal-100">
-                    <!-- Psicoterapia individual -->
+			/* Text */
+			.text-default {
+				color: var(--text-default);
+			}
+			.text-subtle {
+				color: var(--text-subtle);
+			}
+			.text-heading {
+				color: var(--text-heading);
+			}
+			.text-on-accent {
+				color: var(--text-on-accent);
+			}
+			.text-on-accent-subtle {
+				color: var(--text-on-accent-subtle);
+			}
+			.text-link {
+				color: var(--text-link);
+			}
 
-                    <div class="bg-teal-600/10 p-4 rounded-full inline-flex items-center justify-center mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-teal-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 14c-3.866 0-7 2.239-7 5v1h14v-1c0-2.761-3.134-5-7-5zm0-2a3 3 0 100-6 3 3 0 000 6z" />
-                    </svg>
-                    </div>
+			/* Backgrounds */
+			.bg-default {
+				background-color: var(--bg-default);
+			}
+			.bg-subtle {
+				background-color: var(--bg-subtle);
+			}
+			.bg-subtle-50 {
+				background-color: var(--bg-subtle-50);
+			}
+			.bg-surface {
+				background-color: var(--bg-surface);
+			}
 
-                    <h3 class="text-x1 font-semibold mb-2">Psicoterapia individual</h3>
-                    <p class="text-gray-700 leading-relaxed">Acolhimento para ansiedade, depressão, autoestima e autoconhecimento.</p>
+			/* Borders */
+			.border-default {
+				border-color: var(--border-default);
+			}
+			.border-gradient {
+				box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+					rgba(17, 17, 26, 0.05) 0px 8px 32px;
+			}
+			.border-gradient-strong {
+				box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+					rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+					rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+			}
+			.outline-default {
+				outline-color: var(--outline-default);
+			}
 
-                    <a href="http://wa.me/5524981402908?text=Quero%20saber%20mais%20sobre%20a%20psicoterapia%20individual" class="mt-5 inline-block text-sm font-semibold text-teal-700 hover:text-teal-900 transition-colors">
-                        Saiba mais 
-                    </a>
-                </div>
+			/* Text-Shadows */
+			.text-shadow-light {
+				text-shadow: 1px 1px 1px var(--text-on-accent);
+			}
+			.text-shadow-dark {
+				text-shadow: 1px 1px 1px var(--text-default);
+			}
 
-                <!-- Terapia de casal -->
-                <div class="bg-white rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 p-8 border border-teal-100">
-                    <div class="bg-teal-600/10 p-4 rounded-full inline-flex items-center justify-center mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-teal-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 20.045l-7.682-7.363a4.5 4.5 0 010-6.364z" />
-                    </svg>
-                    </div>
+			/* Buttons */
+			.btn {
+				background-color: var(--btn-bg);
+				color: var(--btn-text);
+				transition: all 0.3s ease;
+			}
 
-                    <h3 class="text-x1 font-semibold mb-2">Terapia de casal</h3>
-                    <p class="text-gray-700 leading-relaxed">Aprimore a comunicação, resolva conflitos e fortaleça o vínculo.</p>
+			.btn-secondary {
+				border: 2px solid var(--btn-secondary-border);
+				color: var(--btn-secondary-text);
+				background-color: transparent;
+				transition: all 0.3s ease;
+			}
 
-                    <a href="http://wa.me/5524981402908?text=Quero%20saber%20mais%20sobre%20a%20terapia%20de%20casal" class="mt-5 inline-block text-sm font-semibold text-teal-700 hover:text-teal-900 transition-colors">
-                        Saiba mais 
-                    </a>
-                </div>
+			.btn-tertiary {
+				border: none;
+				color: var(--text-default);
+				background-color: transparent;
+				transition: all 0.3s ease;
+			}
 
-                <!-- Atendimento online -->
-                <div class="bg-white rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 p-8 border border-teal-100">
-                    <div class="bg-teal-600/10 p-4 rounded-full inline-flex items-center justify-center mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-teal-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14m-6 3h6a2 2 0 002-2V7a2 2 0 00-2-2H9a2 2 0 00-2 2v8a2 2 0 002 2zm0 0v2m6-2v2" />
-                    </svg>
-                    </div>
-                    <h3 class="text-x1 font-semibold mb-2">Atendimento online</h3>
-                    <p class="text-gray-700 leading-relaxed">Sessões por vídeo com sigilo e a mesma qualidade do presencial.</p>
+			.btn-link {
+				position: relative;
+				white-space: nowrap;
+				outline: 2px dashed transparent;
+				margin: 0;
+			}
+			.text-btn,
+			.arrow-btn {
+				transition: all 0.3s;
+			}
+			.arrow-btn {
+				transform: translate(0%, -50%);
+				opacity: 0;
+				background-size: 30px;
+				width: 30px;
+				aspect-ratio: 1/1;
+				position: absolute;
+				top: 50%;
+				right: 0;
+				z-index: 1;
+			}
 
-                    <a href="http://wa.me/5524981402908?text=Quero%20saber%20mais%20sobre%20o%20atendimento%20online" class="mt-5 inline-block text-sm font-semibold text-teal-700 hover:text-teal-900 transition-colors">
-                        Saiba mais 
-                    </a>
-                </div>
-             </div>
-            <!-- Fim dos cards -->
-        </div>
-     </section>
+			/* Card Hover */
+			.card-hover {
+				transition: all 0.3s ease;
+				cursor: default;
 
-      <!-- Como trabalho -->
-      <section id="como-trabalho" class="bg-gradient-to-b from-white to-sky-50 py-16">
-        <div class="max-w-6xl mx-auto px-6 md:px-12">
-            <h2 class="text-4xl font-extrabold text-teal-800 mb-3 text-center">Como trabalho</h2>
-            
-            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12 mt-10">
-                <!-- Texto -->
-                <div class="flex-1">
-                    <p class="text-gray-700 leading-relaxed mb-6">
-                        Utilizo uma abordagem integrativa com base em evidências (TCC e outras técnicas), metas claras e acompanhamento contínuo.
-                    </p>
-                    
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 bg-teal-700/10 text-teal-800 rounded-full text-sm font-semibold">TCC</span>
-                        <span class="px-4 py-2 bg-teal-700/10 text-teal-800 rounded-full text-sm font-semibold">Psicoeducação</span>
-                        <span class="px-4 py-2 bg-teal-700/10 text-teal-800 rounded-full text-sm font-semibold">TCC</span>
-                        <span class="px-4 py-2 bg-teal-700/10 text-teal-800 rounded-full text-sm font-semibold">TCC</span>
-                    </div>
-                </div>
+				svg {
+					transition: all 0.2s ease-out;
+					fill: transparent;
+				}
+			}
 
-                <!-- Imagem -->
-                <div class="flex-1 w-full max-w-lg">
-                    <div class="bg-gradient-to-br from-teal-100 to-cyan-100 rounded-3xl p-8 shadow-lg">
-                        <img src="https://img.freepik.com/vetores-gratis/duas-amigas-a-falar-e-a-dar-as-maos_74855-16312.jpg?semt=ais_hybrid&w=740&q=80" 
-                             alt="Sessão de terapia ilustrativa" 
-                             class="w-full h-auto rounded-2xl shadow-md">
-                    </div>
-                </div>
-            </div>
-        </div>
-      </section>
+			.effect-underline {
+				position: relative;
+				transition: all 0.3s ease;
+			}
 
-<!-- Especialidades -->
-<section id="especialidades" class="bg-gradient-to-t from-white to-sky-50 py-16">
-  <div class="max-w-6xl mx-auto px-6 md:px-12">
-    <h2 class="text-4xl font-extrabold text-teal-800 mb-10 text-center">Especialidades</h2>
+			.effect-underline:after {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 1px;
+				left: 0;
+				background-color: currentColor;
+				bottom: -1px;
+				opacity: 0;
+				transform: scaleX(0);
+				transform-origin: center;
+				transition: opacity 0.35s, transform 0.35s;
+			}
 
-    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+			.text-hover-shadow {
+				text-shadow: transparent;
+				transition: text-shadow 0.3s;
+			}
 
-      <div class="flex-1 w-full max-w-2xl">
-        <div class="bg-gradient-to-br from-teal-100 to-cyan-100 rounded-3xl p-8 shadow-xl">
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+			.pyramid-card {
+				position: relative;
+				z-index: 1;
+				box-shadow: rgba(17, 17, 26, 0.3) 0px 4px 6px,
+					rgba(17, 17, 26, 0.2) 0px 8px 12px;
+				transition: all 0.3s;
+			}
 
-            <div class="bg-white rounded-xl p-6 flex items-center justify-center text-center shadow-md hover:shadow-lg transition-shadow duration-300">
-              <h3 class="px-4 py-2 text-teal-800 rounded-full text-sm font-semibold">Terapia Cognitivo-Comportamental (TCC)</h3>
-            </div>
+			.inner-pyramid-card {
+				position: relative;
+				overflow: hidden;
+				background: var(--bg-subtle-50);
+				cursor: default;
+			}
 
-            <div class="bg-white rounded-xl p-6 flex items-center justify-center text-center shadow-md hover:shadow-lg transition-shadow duration-300">
-              <h3 class="px-4 py-2 text-teal-800 rounded-full text-sm font-semibold">Criminologia</h3>
-            </div>
+			.pyramid-card .inner-pyramid-card::before {
+				content: "";
+				top: 0;
+				left: 0;
+				transform-origin: center;
+				position: absolute;
+				width: 120px;
+				height: 30px;
+			}
 
-            <div class="bg-white rounded-xl p-6 flex items-center justify-center text-center shadow-md hover:shadow-lg transition-shadow duration-300">
-              <h3 class="px-4 py-2 text-teal-800 rounded-full text-sm font-semibold">Saúde Mental</h3>
-            </div>
+			.pyramid-card:has(.badge-icon-gold) .inner-pyramid-card::before {
+				background: #ff4646;
+				transform: rotate(-30deg) translate(-10%, -90%);
+			}
 
-            <div class="bg-white rounded-xl p-6 flex items-center justify-center text-center shadow-md hover:shadow-lg transition-shadow duration-300">
-              <h3 class="px-4 py-2 text-teal-800 rounded-full text-sm font-semibold">Vendas e Consumo</h3>
-            </div>
+			.pyramid-card:has(.badge-icon-iron) .inner-pyramid-card::before {
+				background: #c2c7cd;
+				transform: rotate(-30deg) translate(-10%, -100%);
+			}
 
-            <div class="bg-white rounded-xl p-6 flex items-center justify-center text-center shadow-md hover:shadow-lg transition-shadow duration-300">
-              <h3 class="px-4 py-2 text-teal-800 rounded-full text-sm font-semibold">Comportamento Humano</h3>
-            </div>
+			.pyramid-card:has(.badge-icon-bronze) .inner-pyramid-card::before {
+				background: #e1a875;
 
-            <div class="bg-white rounded-xl p-6 flex items-center justify-center text-center shadow-md hover:shadow-lg transition-shadow duration-300">
-              <h3 class="px-4 py-2 text-teal-800 rounded-full text-sm font-semibold">Desenvolvimento Emocional</h3>
-            </div>
+				transform: rotate(-30deg) translate(-15%, -110%);
+			}
 
-          </div>
-        </div>
-      </div>
+			.bg-icon {
+				position: absolute;
+				aspect-ratio: 1 / 1;
+				filter: blur(2px) opacity(0.3);
+				z-index: -1;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+				transition: all 0.3s;
+			}
 
-      <div class="flex-1">
-        <p class="text-gray-700 leading-relaxed text-lg">
-          Pós-graduada em <strong>Teoria Cognitivo-Comportamental (TCC)</strong>, a psicóloga atua com base em evidências científicas, ajudando o paciente a compreender e reestruturar pensamentos, emoções e comportamentos.
-        </p>
+			.bg-icon-tcc {
+				background-image: url("./icons/tcc.png");
+			}
+			.bg-icon-criminologia {
+				background-image: url("./icons/criminologia.png");
+			}
+			.bg-icon-saude {
+				background-image: url("./icons/saude.png");
+			}
+			.bg-icon-vendas {
+				background-image: url("./icons/vendas.png");
+			}
+			.bg-icon-comportamento {
+				background-image: url("./icons/comportamento.png");
+			}
+			.bg-icon-emocional {
+				background-image: url("./icons/emocional.png");
+			}
 
-        <p class="text-gray-700 leading-relaxed mt-4">
-          Possui também especialização em <strong>Criminologia</strong>, <strong>Vendas e Consumo</strong> e <strong>Saúde Mental</strong>, o que amplia sua compreensão sobre os diferentes contextos do comportamento humano.
-        </p>
+			.badge-icon {
+				position: absolute;
+				aspect-ratio: 1 / 1;
+				left: -1%;
+				top: 1%;
+				z-index: 1;
+			}
 
-        <p class="text-gray-600 leading-relaxed mt-4">
-          Cada atendimento é planejado de forma personalizada, com empatia, sigilo e foco no bem-estar e desenvolvimento pessoal do paciente.
-        </p>
-      </div>
-    </div>
-  </div>
-    </section>
-      <!-- Mapa -->
-      <section id="localizacao" class="bg-white py-16">
-        <div class="max-w-6x1 text-center p-10">
-            <h2 class="text-4xl font-extrabold text-teal-800 mb-2">Localização</h2>
-            <p class="text-gray-600 mb-10">Atendimento presencial em Barra Mansa - RJ</p>
+			.badge-icon-gold {
+				background: url("./icons/badgeGold.png") center / cover;
+				width: 40px;
+			}
 
-                <div class="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-lg border border-teal-100">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.0142458319046!2d-44.173240199999995!3d-22.541139100000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9e9bceb5bcf249%3A0xaf911438b97324e1!2sPsic%C3%B3loga%20Giuliana%20Filidei%20-%20Barra%20Mansa%20RJ!5e0!3m2!1spt-BR!2sbr!4v1760442287429!5m2!1spt-BR!2sbr"
-                    class="w-full h-[380px]"
-                    style="border:0;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-                </div>
+			.badge-icon-iron {
+				background: url("./icons/badgeIron.png") center / cover
+					no-repeat;
+				width: 35px;
+			}
 
-                <div class="mt-6 text-1xl text-gray-700">
-                    <p class="text-lg front-semibold text-teal-800">Psicóloga Giuliana Filidei</p>
-                    <p class="text-gray-600">R. Pinto Ribeiro, 154 - 2° andar - Centro</p>
-                    <p class="text-gray-600">Barra Mansa - RJ, 27310-420</p>
-                </div>
-            </div>
+			.badge-icon-bronze {
+				background: url("./icons/badgeBronze.png") center / cover
+					no-repeat;
+				width: 30px;
+			}
 
-        </div>
-      </section>
-      <footer class="bg-teal-700/10 text-center py-6 mt-12 border-t border-teal-100">
-        <p class="text-gray-700 text-sm">© 2025 Giuliana Filidei - Psicóloga | Todos os direitos reservados</p>
-        <p class="text-gray-500 text-xs mt-1">CRP: 05/61178</p>
-      </footer>
-      
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
-</body>
+			.inner-pyramid-card h3 {
+				transition: all 0.3s;
+			}
 
+			.heading-description {
+				position: absolute;
+				opacity: 0;
+				transition: all 0.3s;
+			}
+
+			.timer-fill {
+				position: absolute;
+				inset: 0;
+				z-index: 1;
+				border-radius: inherit;
+				overflow: hidden;
+			}
+
+			.timer-fill::after {
+				content: "";
+				position: absolute;
+				background-color: var(--bg-subtle);
+				width: 100%;
+				height: 150%;
+				top: 0;
+				left: 0;
+				transform: translate(-100%, -25%);
+				transition: transform 0.1s linear;
+			}
+
+			.timer-fill.active::after {
+				transform: translate(0%, -25%);
+				transition: transform 10s linear;
+			}
+
+			.footer {
+				background: url("/img/wave.svg") no-repeat center bottom;
+				background-size: 100%;
+				position: relative;
+				z-index: 0;
+			}
+
+			/* Basicamente limitando para funcionar somente com mouse*/
+			@media (pointer: fine) {
+				.btn:hover {
+					background-color: var(--btn-bg-hover);
+				}
+
+				.btn-secondary:hover {
+					background-color: var(--btn-secondary-bg-hover);
+				}
+
+				.btn-tertiary:hover {
+					background-color: var(--btn-tertiary-bg-hover);
+				}
+
+				.btn-link:hover {
+					outline: 2px dashed var(--bg-default);
+				}
+
+				.btn-link:hover .text-btn {
+					padding-right: 20px;
+				}
+
+				.btn-link:hover .arrow-btn {
+					transform: translate(-50%, -50%);
+					opacity: 1;
+				}
+
+				.card-hover:hover {
+					background-color: color-mix(
+						in srgb,
+						var(--bg-subtle) 45%,
+						transparent
+					);
+					transform: translateY(-5px);
+					box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+						rgba(17, 17, 26, 0.1) 0px 8px 24px,
+						rgba(17, 17, 26, 0.1) 0px 16px 56px;
+
+					svg {
+						scale: 1.2;
+						fill: currentColor;
+					}
+				}
+
+				.effect-underline:hover {
+					color: var(--color-primary-700);
+
+					&::after {
+						opacity: 1;
+						transform: scaleX(1);
+					}
+				}
+
+				.text-hover-shadow:hover {
+					text-shadow: 1px 1px 1px var(--text-on-accent);
+				}
+
+				.pyramid-card:hover {
+					transform: translateY(-1px);
+					box-shadow: rgba(17, 17, 26, 0.3) 0px 4px 6px,
+						rgba(17, 17, 26, 0.3) 0px 8px 12px,
+						rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+				}
+				.inner-pyramid-card:hover h3 {
+					opacity: 0;
+				}
+
+				.inner-pyramid-card:hover .bg-icon {
+					scale: 1.2;
+					filter: blur(4px) opacity(0.3);
+				}
+
+				.inner-pyramid-card:hover .heading-description {
+					opacity: 1;
+				}
+			}
+
+			/* Focus Outline */
+			:focus-visible {
+				outline: 2px solid var(--focus-ring-color);
+				outline-offset: 2px;
+			}
+
+			/* Deixando a navegação pela navbar e "saiba mais" mais agradável */
+			html {
+				scroll-behavior: smooth;
+			}
+		</style>
+	</head>
+
+	<body>
+		<nav
+			class="fixed w-full top-0 z-2 backdrop-blur-[10px] outline-[var(--bg-subtle)] outline-1 bg-subtle-50 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10">
+			<div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+				<div class="relative flex h-16 items-center justify-between">
+					<div
+						class="absolute inset-y-0 left-0 flex items-center md:hidden">
+						<button
+							type="button"
+							command="--toggle"
+							commandfor="mobile-menu"
+							class="relative inline-flex items-center justify-center rounded-md p-2 text-heading hover:bg-subtle hover:text-on-accent">
+							<span class="absolute -inset-0.5"></span>
+							<span class="sr-only">Open main menu</span>
+							<svg
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.5"
+								data-slot="icon"
+								aria-hidden="true"
+								class="size-6 in-aria-expanded:hidden">
+								<path
+									d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+									stroke-linecap="round"
+									stroke-linejoin="round" />
+							</svg>
+							<svg
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.5"
+								data-slot="icon"
+								aria-hidden="true"
+								class="size-6 not-in-aria-expanded:hidden">
+								<path
+									d="M6 18 18 6M6 6l12 12"
+									stroke-linecap="round"
+									stroke-linejoin="round" />
+							</svg>
+						</button>
+					</div>
+
+					<div
+						class="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
+						<div class="flex shrink-0 items-center">
+							<a href="#" class="text-heading text-3xl font-bold">
+								Giuliana Filidei
+							</a>
+						</div>
+					</div>
+
+					<div
+						class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+						<div class="hidden sm:ml-6 md:block">
+							<div class="flex space-x-4">
+								<a
+									href="#servicos"
+									class="btn-tertiary rounded-md px-3 py-2 text-sm font-bold hover:bg-subtle hover:text-heading">
+									Serviços
+								</a>
+								<a
+									href="#como-trabalho"
+									class="btn-tertiary rounded-md px-3 py-2 text-sm font-bold hover:bg-subtle hover:text-heading">
+									Como eu trabalho
+								</a>
+								<a
+									href="#especialidades"
+									class="btn-tertiary rounded-md px-3 py-2 text-sm font-bold hover:bg-subtle hover:text-heading">
+									Especialidades
+								</a>
+								<a
+									href="#localizacao"
+									class="btn-tertiary rounded-md px-3 py-2 text-sm font-bold hover:bg-subtle hover:text-heading">
+									Endereço
+								</a>
+								<a
+									href="http://wa.me/5524981402908?text=Quero%20agendar%20uma%20sessão"
+									class="btn rounded-md px-3 py-2 text-sm font-bold">
+									Agendar
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<el-disclosure id="mobile-menu" hidden class="block md:hidden">
+				<div
+					class="space-y-1 px-2 pt-2 pb-3 flex justify-center items-center justify-self-center flex-wrap">
+					<a
+						href="#servicos"
+						class="btn-tertiary rounded-md px-3 py-2 text-sm font-bold hover:bg-subtle hover:text-heading text-shadow-light">
+						Serviços
+					</a>
+					<a
+						href="#como-trabalho"
+						class="btn-tertiary rounded-md px-3 py-2 text-sm font-bold hover:bg-subtle hover:text-heading text-shadow-light">
+						Como trabalho
+					</a>
+					<a
+						href="#especialidades"
+						class="btn-tertiary rounded-md px-3 py-2 text-sm font-bold hover:bg-subtle hover:text-heading text-shadow-light">
+						Especialidades
+					</a>
+					<a
+						href="#localizacao"
+						class="btn-tertiary rounded-md px-3 py-2 text-sm font-bold hover:bg-subtle hover:text-heading text-shadow-light">
+						Endereço
+					</a>
+					<a
+						href="http://wa.me/5524981402908?text=Quero%20agendar%20uma%20sessão"
+						aria-current="page"
+						class="btn block rounded-md px-3 py-2 text-base font-medium">
+						Agendar
+					</a>
+				</div>
+			</el-disclosure>
+		</nav>
+
+		<!-- Menu Principal -->
+		<section
+			id="menu"
+			class="h-[500px] lg:w-5/7 w-full mt-25 flex justify-self-center justify-center items-center relative md:px-20 px-4 overflow-hidden">
+			<div class="flex flex-col bg-surface items-center">
+				<div
+					class="p-10 flex-1 flex-col lg:w-4/5 z-1 justify-self-center items-center justify-center backdrop-blur-[4px] bg-subtle-50 rounded-2xl">
+					<h1
+						class="lg:text-4xl text-3xl font-bold text-heading leading-tight mb-5 text-pretty text-center">
+						Cuidar da mente é um ato de coragem e amor próprio
+					</h1>
+
+					<p
+						class="mt-4 text-default leading-relaxed text-center text-pretty font-semibold">
+						Atendimento acolhedor, sigiloso e baseado em evidências
+						para ansiedade, depressão, relacionamentos, autoestima e
+						desenvolvimento pessoal.
+					</p>
+
+					<div
+						class="lg:w-2/3 w-5/6 flex flex-row flex-wrap md:flex-wrap lg:flex-nowrap mt-10 gap-x-5 gap-y-3 justify-center justify-self-center">
+						<a
+							href="http://wa.me/5524981402908?text=Quero%20agendar%20uma%20sessão"
+							class="btn-link min-w-[187px] flex-1 btn rounded-md px-6 py-3 text-center font-bold">
+							<span class="text-btn">Agendar sessão</span>
+							<span class="arrow-btn">
+								<svg
+									viewBox="0 0 24 24"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<path
+										d="M6 12H18M18 12L13 7M18 12L13 17"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round" /></svg
+							></span>
+						</a>
+						<a
+							href="#servicos"
+							class="btn-secondary whitespace-nowrap flex-1 rounded-md px-6 py-3 text-center font-bold text-hover-shadow">
+							Conhecer serviços
+						</a>
+					</div>
+				</div>
+				<div
+					class="flex-1 w-full h-[500px] absolute z-0 left-0 top-0 overflow-hidden lg:rounded-2xl origin-bottom">
+					<img
+						src="https://images.unsplash.com/photo-1641806120809-c4ce6aee33b8?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+						alt="Uma pessoa em um caiaque em um lago com montanhas e neblina."
+						class="max-w-none xl:w-full md:w-[120%] sm:w-[130%] w-[1000px] lg:translate-x-0 md:translate-x-[-10%] sm:translate-x-[-20%] translate-x-0 translate-y-[-20%] lg:translate-y-[-12%] xl:translate-y-[-15%] 2xl:translate-y-[-28%]" />
+				</div>
+			</div>
+		</section>
+
+		<!-- Serviços -->
+		<section
+			id="servicos"
+			class="bg-gradient-to-b from-bg-default to-bg-surface pt-50">
+			<div class="md:w-5/7 w-6/7 mx-auto px-6 md:px-12 text-center">
+				<h2
+					class="sm:text-5xl text-4xl font-extrabold text-heading mb-3">
+					Serviços
+				</h2>
+				<p class="text-default max-w-2x1 mx-auto mb-10">
+					Cada pessoa tem um ritmo e uma história única. Conheça os
+					principais tipos de atendimento oferecidos.
+				</p>
+
+				<!-- Cards -->
+				<div
+					class="grid grid-cols-1 lg:grid-cols-3 justify-center gap-6">
+					<!-- Psicoterapia individual -->
+					<div
+						class="card-hover bg-surface rounded-3xl p-8 border-gradient">
+						<div
+							class="bg-subtle p-4 rounded-full inline-flex items-center justify-center mb-4">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								class="h-7 w-7 text-heading"
+								viewBox="0 0 24 24"
+								stroke="currentColor">
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M12 14c-3.866 0-7 2.239-7 5v1h14v-1c0-2.761-3.134-5-7-5zm0-2a3 3 0 100-6 3 3 0 000 6z" />
+							</svg>
+						</div>
+
+						<h3 class="text-x1 font-semibold mb-2 text-heading">
+							Psicoterapia individual
+						</h3>
+						<p class="text-default leading-relaxed">
+							Acolhimento para ansiedade, depressão, autoestima e
+							autoconhecimento.
+						</p>
+
+						<a
+							href="http://wa.me/5524981402908?text=Quero%20saber%20mais%20sobre%20a%20psicoterapia%20individual"
+							class="effect-underline mt-5 inline-block text-sm font-semibold text-link hover:text-heading transition-colors">
+							Saiba mais
+						</a>
+					</div>
+
+					<!-- Terapia de casal -->
+					<div
+						class="card-hover bg-surface rounded-3xl border-gradient p-8">
+						<div
+							class="bg-subtle p-4 rounded-full inline-flex items-center justify-center mb-4">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								class="h-7 w-7 text-heading"
+								viewBox="0 0 24 24"
+								stroke="currentColor">
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 20.045l-7.682-7.363a4.5 4.5 0 010-6.364z" />
+							</svg>
+						</div>
+
+						<h3 class="text-x1 font-semibold mb-2 text-heading">
+							Terapia de casal
+						</h3>
+						<p class="text-default leading-relaxed">
+							Aprimore a comunicação, resolva conflitos e
+							fortaleça o vínculo.
+						</p>
+
+						<a
+							href="http://wa.me/5524981402908?text=Quero%20saber%20mais%20sobre%20a%20terapia%20de%20casal"
+							class="effect-underline mt-5 inline-block text-sm font-semibold text-link hover:text-heading transition-colors">
+							Saiba mais
+						</a>
+					</div>
+
+					<!-- Atendimento online -->
+					<div
+						class="card-hover bg-surface rounded-3xl border-gradient p-8">
+						<div
+							class="bg-subtle p-4 rounded-full inline-flex items-center justify-center mb-4">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								class="h-7 w-7 text-heading"
+								viewBox="0 0 24 24"
+								stroke="currentColor">
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14m-6 3h6a2 2 0 002-2V7a2 2 0 00-2-2H9a2 2 0 00-2 2v8a2 2 0 002 2zm0 0v2m6-2v2" />
+							</svg>
+						</div>
+						<h3 class="text-x1 font-semibold mb-2 text-heading">
+							Atendimento online
+						</h3>
+						<p class="text-default leading-relaxed">
+							Sessões por vídeo com sigilo e a mesma qualidade do
+							presencial.
+						</p>
+
+						<a
+							href="http://wa.me/5524981402908?text=Quero%20saber%20mais%20sobre%20o%20atendimento%20online"
+							class="effect-underline mt-5 inline-block text-sm font-semibold text-link hover:text-heading transition-colors">
+							Saiba mais
+						</a>
+					</div>
+				</div>
+				<!-- Fim dos cards -->
+			</div>
+		</section>
+
+		<!-- Como trabalho -->
+		<section id="como-trabalho" class="bg-default pt-50">
+			<div class="md:w-5/7 w-6/7 mx-auto px-6 md:px-12">
+				<h2
+					class="sm:text-5xl text-4xl font-extrabold text-heading mb-3 text-center">
+					Como trabalho
+				</h2>
+
+				<div
+					class="flex flex-col lg:flex-row items-center gap-6 md:gap-12 mt-10"
+					x-data="{
+						activeTab: 0,
+						totalTabs: 4, 
+						timer: null,
+						autoRotate() {
+							this.activeTab = (this.activeTab + 1) % this.totalTabs;
+						},
+						resetTimer() {
+							clearInterval(this.timer);
+							this.timer = setInterval(() => this.autoRotate(), 10000);
+						}
+					}"
+					x-init="timer = setInterval(() => autoRotate(), 10000)">
+					<div class="flex-1">
+						<p
+							class="text-default leading-relaxed mb-6 md:text-left text-justify">
+							Utilizo uma abordagem integrativa com base em
+							evidências científicas. Isso significa que adapto o
+							tratamento às suas necessidades individuais,
+							combinando as técnicas mais eficazes para o seu
+							caso, sempre com metas claras e acompanhamento
+							contínuo.
+						</p>
+
+						<div
+							class="flex flex-wrap gap-3 lg:justify-start justify-center">
+							<button
+								class="cursor-pointer px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 relative overflow-hidden z-0"
+								:class="activeTab === 0 ? 'bg-subtle-50 text-default scale-105 outline-dashed outline-default outline-1' : 'bg-subtle text-heading outline-transparent'"
+								@click="activeTab = 0; resetTimer()">
+								<span
+									class="timer-fill"
+									:class="{ 'active': activeTab === 0 }">
+								</span>
+
+								<span class="relative z-2">TCC</span>
+							</button>
+
+							<button
+								class="cursor-pointer px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 relative overflow-hidden z-0"
+								:class="activeTab === 1 ? 'bg-subtle-50 text-default scale-105 outline-dashed outline-default outline-1' : 'bg-subtle text-heading outline-transparent'"
+								@click="activeTab = 1; resetTimer()">
+								<span
+									class="timer-fill"
+									:class="{ 'active': activeTab === 1 }">
+								</span>
+								<span class="relative z-2">Psicoeducação</span>
+							</button>
+
+							<button
+								class="cursor-pointer px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 relative overflow-hidden z-0"
+								:class="activeTab === 2 ? 'bg-subtle-50 text-default scale-105 outline-dashed outline-default outline-1' : 'bg-subtle text-heading outline-transparent'"
+								@click="activeTab = 2; resetTimer()">
+								<span
+									class="timer-fill"
+									:class="{ 'active': activeTab === 2 }">
+								</span>
+								<span class="relative z-2">Mindfulness</span>
+							</button>
+
+							<button
+								class="cursor-pointer px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 relative overflow-hidden z-0"
+								:class="activeTab === 3 ? 'bg-subtle-50 text-default scale-105 outline-dashed outline-default outline-1' : 'bg-subtle text-heading outline-transparent'"
+								@click="activeTab = 3; resetTimer()">
+								<span
+									class="timer-fill"
+									:class="{ 'active': activeTab === 3 }">
+								</span>
+								<span class="relative z-2">ACT</span>
+							</button>
+						</div>
+					</div>
+
+					<div class="flex-1 flex w-full md:max-w-lg">
+						<div
+							class="rounded-3xl border-gradient-strong relative overflow-hidden">
+							<img
+								src="https://img.freepik.com/vetores-gratis/duas-amigas-a-falar-e-a-dar-as-maos_74855-16312.jpg?semt=ais_hybrid&w=740&q=80"
+								alt="Sessão de terapia ilustrativa"
+								class="w-full h-auto rounded-2xl relative" />
+
+							<div
+								class="absolute inset-0 rounded-3xl backdrop-blur-[6px] backdrop-brightness-70"
+								aria-hidden="true"></div>
+
+							<div
+								class="absolute inset-0 p-8 flex flex-col justify-center items-center text-center"
+								x-show="activeTab === 0"
+								x-transition:enter="transition ease-out duration-500"
+								x-transition:enter-start="opacity-0 -translate-x-10"
+								x-transition:enter-end="opacity-100 translate-x-0"
+								x-transition:leave="transition ease-in duration-300"
+								x-transition:leave-start="opacity-100 translate-x-0"
+								x-transition:leave-end="opacity-0 translate-x-10"
+								x-cloak>
+								<h3
+									class="xl:text-3xl md:text-2xl sm:text-3xl text-2xl font-bold mb-2 text-heading text-shadow-light">
+									Terapia Cognitivo-Comportamental (TCC)
+								</h3>
+								<p
+									class="leading-relaxed text-default xl:text-xl text-lg text-on-accent-subtle text-shadow-dark">
+									Focada em identificar e reestruturar padrões
+									de pensamento e comportamento que causam
+									sofrimento.
+								</p>
+							</div>
+
+							<div
+								class="absolute inset-0 p-8 flex flex-col justify-center items-center text-center"
+								x-show="activeTab === 1"
+								x-transition:enter="transition ease-out duration-500"
+								x-transition:enter-start="opacity-0 -translate-x-10"
+								x-transition:enter-end="opacity-100 translate-x-0"
+								x-transition:leave="transition ease-in duration-300"
+								x-transition:leave-start="opacity-100 translate-x-0"
+								x-transition:leave-end="opacity-0 translate-x-10"
+								x-cloak>
+								<h3
+									class="xl:text-3xl md:text-2xl sm:text-3xl text-2xl font-bold mb-2 text-heading text-shadow-light">
+									Psicoeducação
+								</h3>
+								<p
+									class="leading-relaxed text-default xl:text-xl text-lg text-on-accent-subtle text-shadow-dark">
+									Compreender o que acontece na sua mente é o
+									primeiro passo para a mudança e para reduzir
+									a ansiedade.
+								</p>
+							</div>
+
+							<div
+								class="absolute inset-0 p-8 flex flex-col justify-center items-center text-center"
+								x-show="activeTab === 2"
+								x-transition:enter="transition ease-out duration-500"
+								x-transition:enter-start="opacity-0 -translate-x-10"
+								x-transition:enter-end="opacity-100 translate-x-0"
+								x-transition:leave="transition ease-in duration-300"
+								x-transition:leave-start="opacity-100 translate-x-0"
+								x-transition:leave-end="opacity-0 translate-x-10"
+								x-cloak>
+								<h3
+									class="xl:text-3xl md:text-2xl sm:text-3xl text-2xl font-bold mb-2 text-heading text-shadow-light">
+									Mindfulness (Atenção Plena)
+								</h3>
+								<p
+									class="leading-relaxed text-default xl:text-xl text-lg text-on-accent-subtle text-shadow-dark">
+									Técnicas para focar no momento presente,
+									aceitar emoções difíceis e cultivar a calma
+									mental.
+								</p>
+							</div>
+
+							<div
+								class="absolute inset-0 p-8 flex flex-col justify-center items-center text-center"
+								x-show="activeTab === 3"
+								x-transition:enter="transition ease-out duration-500"
+								x-transition:enter-start="opacity-0 -translate-x-10"
+								x-transition:enter-end="opacity-100 translate-x-0"
+								x-transition:leave="transition ease-in duration-300"
+								x-transition:leave-start="opacity-100 translate-x-0"
+								x-transition:leave-end="opacity-0 translate-x-10"
+								x-cloak>
+								<h3
+									class="xl:text-3xl md:text-2xl sm:text-3xl text-2xl font-bold mb-2 text-heading text-shadow-light">
+									Terapia de Aceitação e Compromisso (ACT)
+								</h3>
+								<p
+									class="leading-relaxed text-default xl:text-xl text-lg text-on-accent-subtle text-shadow-dark">
+									Aprenda a aceitar o que não pode controlar e
+									se comprometer com ações que enriquecem sua
+									vida.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Especialidades -->
+		<section
+			id="especialidades"
+			class="bg-gradient-to-t from-bg-surface to-bg-default pt-50">
+			<div class="md:w-5/7 w-6/7 mx-auto px-6 md:px-12">
+				<h2
+					class="sm:text-5xl text-4xl font-extrabold text-heading mb-10 text-center">
+					Especialidades
+				</h2>
+
+				<div
+					class="flex flex-col 2xl:flex-row items-center gap-8 md:gap-12">
+					<div class="flex-1 w-full max-w-2xl">
+						<div
+							class="bg-subtle rounded-3xl p-8 border-gradient-strong">
+							<div
+								class="pyramid flex flex-col items-center gap-4">
+								<div
+									class="pyramid-card sm:h-[120px] bg-surface rounded-xl flex items-center justify-center text-center w-full sm:w-2/4">
+									<div
+										class="inner-pyramid-card rounded-xl w-full h-full p-6 flex flex-col items-center justify-center relative">
+										<h3
+											class="text-heading text-shadow-light font-bold">
+											Terapia Cognitivo-Comportamental
+											(TCC)
+										</h3>
+										<p
+											class="heading-description font-semibold text-default leading-relaxed text-sm text-shadow-light">
+											Mude pensamentos e comportamentos.
+										</p>
+										<span
+											class="bg-icon bg-icon-tcc bottom-[0] right-[2%] sm:w-[120px] w-[70px] sm:bottom-[50%] sm:right-[50%] sm:translate-x-[50%] sm:translate-y-[50%]"></span>
+									</div>
+									<span
+										class="badge-icon badge-icon-gold"></span>
+								</div>
+
+								<div
+									class="flex flex-col sm:flex-row justify-center gap-4 w-full">
+									<div
+										class="pyramid-card sm:h-[120px] bg-surface rounded-xl flex items-center justify-center text-center relative">
+										<div
+											class="inner-pyramid-card rounded-xl w-full h-full p-6 flex flex-col items-center justify-center relative">
+											<h3
+												class="text-heading text-shadow-light font-bold">
+												Criminologia
+											</h3>
+											<p
+												class="heading-description font-semibold text-default leading-relaxed text-sm text-shadow-light">
+												Entenda os aspectos psicológicos
+												do crime.
+											</p>
+											<span
+												class="bg-icon bg-icon-criminologia bottom-[0] right-[2%] sm:w-[120px] w-[70px] sm:bottom-[50%] sm:right-[50%] sm:translate-x-[50%] sm:translate-y-[50%]"></span>
+										</div>
+										<span
+											class="badge-icon badge-icon-iron"></span>
+									</div>
+
+									<div
+										class="pyramid-card sm:h-[120px] bg-surface rounded-xl flex items-center justify-center text-center relative">
+										<div
+											class="inner-pyramid-card rounded-xl w-full h-full p-6 flex flex-col items-center justify-center relative">
+											<h3
+												class="text-heading text-shadow-light font-bold">
+												Vendas e Consumo
+											</h3>
+											<p
+												class="heading-description font-semibold text-default leading-relaxed text-sm text-shadow-light">
+												Psicologia aplicada ao mercado.
+											</p>
+											<span
+												class="bg-icon bg-icon-vendas bottom-[5%] right-[2%] sm:w-[120px] w-[65px] sm:bottom-[50%] sm:right-[50%] sm:translate-x-[50%] sm:translate-y-[50%]"></span>
+										</div>
+										<span
+											class="badge-icon badge-icon-iron"></span>
+									</div>
+
+									<div
+										class="pyramid-card sm:h-[120px] bg-surface rounded-xl flex items-center justify-center text-center relative">
+										<div
+											class="inner-pyramid-card rounded-xl w-full h-full p-6 flex flex-col items-center justify-center relative">
+											<h3
+												class="text-heading text-shadow-light font-bold">
+												Saúde Mental
+											</h3>
+											<p
+												class="heading-description font-semibold text-default leading-relaxed text-sm text-shadow-light">
+												Promoção do bem-estar
+												psicológico geral.
+											</p>
+											<span
+												class="bg-icon bg-icon-saude bottom-[0] right-[2%] sm:w-[120px] w-[70px] sm:bottom-[50%] sm:right-[50%] sm:translate-x-[50%] sm:translate-y-[50%]"></span>
+										</div>
+										<span
+											class="badge-icon badge-icon-iron"></span>
+									</div>
+								</div>
+
+								<div
+									class="flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-4/6">
+									<div
+										class="pyramid-card sm:h-[120px] bg-surface rounded-xl flex items-center justify-center text-center relative">
+										<div
+											class="inner-pyramid-card rounded-xl w-full h-full p-6 flex flex-col items-center justify-center relative">
+											<h3
+												class="text-heading text-shadow-light font-bold">
+												Comportamento Humano
+											</h3>
+											<p
+												class="heading-description font-semibold text-default leading-relaxed text-sm text-shadow-light">
+												Análise das ações e interações.
+											</p>
+											<span
+												class="bg-icon bg-icon-comportamento bbottom-[0] right-[2%] sm:w-[120px] w-[70px] sm:bottom-[50%] sm:right-[50%] sm:translate-x-[50%] sm:translate-y-[50%]"></span>
+										</div>
+										<span
+											class="badge-icon badge-icon-bronze"></span>
+									</div>
+
+									<div
+										class="pyramid-card sm:h-[120px] bg-surface rounded-xl flex items-center justify-center text-center relative">
+										<div
+											class="inner-pyramid-card rounded-xl w-full h-full p-6 flex flex-col items-center justify-center relative">
+											<h3
+												class="text-heading text-shadow-light font-bold">
+												Desenvolvimento Emocional
+											</h3>
+											<p
+												class="heading-description font-semibold text-default leading-relaxed text-sm text-shadow-light">
+												Gerencie emoções e
+												relacionamentos.
+											</p>
+											<span
+												class="bg-icon bg-icon-emocional bottom-[0] right-[2%] sm:w-[120px] w-[70px] sm:bottom-[50%] sm:right-[50%] sm:translate-x-[50%] sm:translate-y-[50%]"></span>
+										</div>
+										<span
+											class="badge-icon badge-icon-bronze"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="flex-1">
+						<p class="text-default leading-relaxed text-lg">
+							Pós-graduada em
+							<strong
+								>Teoria Cognitivo-Comportamental (TCC)</strong
+							>, a psicóloga atua com base em evidências
+							científicas, ajudando o paciente a compreender e
+							reestruturar pensamentos, emoções e comportamentos.
+						</p>
+						<p class="text-default leading-relaxed mt-4">
+							Possui também especialização em
+							<strong>Criminologia</strong>,
+							<strong>Vendas e Consumo</strong> e
+							<strong>Saúde Mental</strong>, o que amplia sua
+							compreensão sobre os diferentes contextos do
+							comportamento humano.
+						</p>
+						<p class="text-default leading-relaxed mt-4">
+							Cada atendimento é planejado de forma personalizada,
+							com
+							<strong
+								>empatia, sigilo e foco no bem-estar e
+								desenvolvimento pessoal</strong
+							>
+							do paciente.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Mapa -->
+		<section id="localizacao" class="pt-50">
+			<div class="md:w-5/7 w-6/7 text-center p-10 justify-self-center">
+				<h2
+					class="sm:text-5xl text-4xl font-extrabold text-heading mb-2">
+					Localização
+				</h2>
+				<p class="text-default mb-10">
+					Atendimento presencial em Barra Mansa - RJ
+				</p>
+
+				<div
+					class="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-lg border border-default">
+					<iframe
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.0142458319046!2d-44.173240199999995!3d-22.541139100000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9e9bceb5bcf249%3A0xaf911438b97324e1!2sPsic%C3%B3loga%20Giuliana%20Filidei%20-%20Barra%20Mansa%20RJ!5e0!3m2!1spt-BR!2sbr!4v1760442287429!5m2!1spt-BR!2sbr"
+						class="w-full h-[380px]"
+						style="border: 0"
+						allowfullscreen=""
+						loading="lazy"
+						referrerpolicy="no-referrer-when-downgrade"></iframe>
+				</div>
+
+				<div class="mt-6 text-default">
+					<p class="text-lg font-semibold text-heading">
+						Psicóloga Giuliana Filidei
+					</p>
+					<p class="text-default">
+						R. Pinto Ribeiro, 154 - 2° andar - Centro
+					</p>
+					<p class="text-default">Barra Mansa - RJ, 27310-420</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer class="footer text-center pt-35 pb-10">
+			<div class="mb-4">
+				<p class="text-default text-sm font-semibold mb-2">
+					Entre em contato:
+				</p>
+				<div class="flex justify-center items-center space-x-4">
+					<a
+						href="https://wa.me/5524981402908?text=Olá,%20Giuliana!%20Encontrei%20seu%20contato%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20informações."
+						target="_blank"
+						rel="noopener noreferrer"
+						class="text-link hover:text-heading transition-colors flex items-center space-x-1 text-sm">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="h-4 w-4"
+							fill="currentColor"
+							viewBox="0 0 16 16">
+							<path
+								d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+						</svg>
+						<span>(24) 98140-2908</span>
+					</a>
+
+					<a
+						href="https://www.instagram.com/psicologiuliana/"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="text-link hover:text-heading transition-colors flex items-center space-x-1 text-sm">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="h-4 w-4"
+							fill="currentColor"
+							viewBox="0 0 16 16">
+							<path
+								d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.703.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372.853.038 1.125.049 3.297.049 2.172 0 2.444-.01 3.297-.049.852-.04 1.433-.174 1.942-.372.526-.205.972-.478 1.417-.923.445-.444.719-.891.923-1.417.198-.51.333-1.09.372-1.942.038-.853.049-1.125.049-3.297 0-2.172-.01-2.444-.049-3.297-.04-.852-.174-1.433-.372-1.942a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.09-.333-1.942-.372C10.444.01 10.173 0 8 0zm0 1.442c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.233s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485-.145.373-.319.64-.599.92s-.546.453-.92.598c-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.389.046-3.232c.035-.78.166-1.204.275-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.843-.038 1.096-.047 3.233-.047zM8 3.882a4.108 4.108 0 1 0 0 8.217 4.108 4.108 0 0 0 0-8.217zm0 6.762a2.652 2.652 0 1 1 0-5.304 2.652 2.652 0 0 1 0 5.304zm4.965-6.404a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92z" />
+						</svg>
+						<span>@psicologiuliana</span>
+					</a>
+
+					<a
+						href="https://www.facebook.com/GiulianaFilidei"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="text-link hover:text-heading transition-colors flex items-center space-x-1 text-sm">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="h-4 w-4"
+							fill="currentColor"
+							viewBox="0 0 16 16">
+							<path
+								d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+						</svg>
+						<span>Giuliana Filidei</span>
+					</a>
+				</div>
+			</div>
+
+			<div>
+				<p class="text-default text-sm">
+					© 2025 Giuliana Filidei - Psicóloga | Todos os direitos
+					reservados
+				</p>
+				<p class="text-subtle text-xs mt-1">CRP: 05/61178</p>
+			</div>
+		</footer>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1"
+			type="module"></script>
+	</body>
 </html>
